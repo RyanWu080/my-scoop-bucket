@@ -12,23 +12,23 @@
     ],
     "architecture": {
         "64bit": {
-            "url": "https://github.com/PCL-Community/PCL-CE/releases/download/v2.15.0/PCL2_CE_Release_x64.exe#/pclce.exe",
+            "url": "https://github.com/PCL-Community/PCL-CE/releases/download/v2.15.0/PCL2_CE_Release_x64.exe#/pcl-ce.exe",
             "hash": "39e0f0613902241d448f901d4be9bf2da2f366ed2a5e0a6518a413de4bfbe992"
         },
         "arm64": {
-            "url": "https://github.com/PCL-Community/PCL-CE/releases/download/v2.15.0/PCL2_CE_Release_ARM64.exe#/pclce.exe",
+            "url": "https://github.com/PCL-Community/PCL-CE/releases/download/v2.15.0/PCL2_CE_Release_ARM64.exe#/pcl-ce.exe",
             "hash": "539f4e90b65fca74196e69e715698c263a752730c1fb7617f858a3768ede6cf8"
         }
     },
     "bin": [
         [
-            "pclce.exe",
-            "pclce"
+            "pcl-ce.exe",
+            "pcl-ce"
         ]
     ],
     "shortcuts": [
         [
-            "pclce.exe",
+            "pcl-ce.exe",
             "PCL CE"
         ]
     ],
@@ -44,10 +44,10 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/PCL-Community/PCL-CE/releases/download/v$version/PCL2_CE_Release_x64.exe#/pclce.exe"
+                "url": "https://github.com/PCL-Community/PCL-CE/releases/download/v$version/PCL2_CE_Release_x64.exe#/pcl-ce.exe"
             },
             "arm64": {
-                "url": "https://github.com/PCL-Community/PCL-CE/releases/download/v$version/PCL2_CE_Release_ARM64.exe#/pclce.exe"
+                "url": "https://github.com/PCL-Community/PCL-CE/releases/download/v$version/PCL2_CE_Release_ARM64.exe#/pcl-ce.exe"
             }
         }
     }
