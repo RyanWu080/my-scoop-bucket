@@ -34,6 +34,24 @@ scoop bucket add <bucketname> https://github.com/<username>/<bucketname>
 scoop install <bucketname>/<manifestname>
 ```
 
+## PCL CE
+
+```pwsh
+scoop bucket add my-scoop-bucket https://github.com/RyanWu080/my-scoop-bucket
+scoop install my-scoop-bucket/pclce
+# Beta channel:
+scoop install my-scoop-bucket/pclce-beta
+```
+
+Both packages support x64 and ARM64 and require .NET 10 Desktop Runtime.
+If needed, run `scoop bucket add extras` and
+`scoop install extras/windowsdesktop-runtime` to install the runtime.
+
+The `pclce` and `pclce-beta` commands and Start Menu shortcuts are distinct.
+Each package preserves its own `PCL` and `.minecraft` directories across updates.
+Settings stored by the launcher in AppData may still be shared between channels.
+Use Scoop for updates and disable automatic downloads in the launcher's update settings.
+
 ## How do I contribute new manifests?
 
 To make a new manifest contribution, please read the [Contributing

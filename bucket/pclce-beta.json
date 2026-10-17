@@ -1,0 +1,54 @@
+{
+    "version": "2.15.1-beta.1",
+    "description": "Beta version of PCL Community Edition: A community-developed Minecraft launcher.",
+    "homepage": "https://github.com/PCL-Community/PCL-CE",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://github.com/PCL-Community/PCL-CE/blob/dev/Plain%20Craft%20Launcher%202/LICENCE"
+    },
+    "notes": [
+        "Requires Microsoft .NET 10 Desktop Runtime. Install it with 'scoop install extras/windowsdesktop-runtime' if needed.",
+        "Use Scoop to update the launcher; disable automatic downloads in the launcher's update settings."
+    ],
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/PCL-Community/PCL-CE/releases/download/v2.15.1-beta.1/PCL2_CE_Beta_x64.exe#/pclce.exe",
+            "hash": "fc3d56fdae2ba58968b4caac40266b35e2b5552d4274c78af30213b0c491a39a"
+        },
+        "arm64": {
+            "url": "https://github.com/PCL-Community/PCL-CE/releases/download/v2.15.1-beta.1/PCL2_CE_Beta_ARM64.exe#/pclce.exe",
+            "hash": "5c333dc02212eb339e6521aa789a130ab9b557b5bf5ee8942bb008a663e84d1a"
+        }
+    },
+    "bin": [
+        [
+            "pclce.exe",
+            "pclce-beta"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "pclce.exe",
+            "PCL CE Beta"
+        ]
+    ],
+    "persist": [
+        "PCL",
+        ".minecraft"
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/PCL-Community/PCL-CE/releases?per_page=100",
+        "jsonpath": "$[?(@.prerelease == true)].tag_name",
+        "regex": "v(\\d+\\.\\d+\\.\\d+-beta\\.\\d+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/PCL-Community/PCL-CE/releases/download/v$version/PCL2_CE_Beta_x64.exe#/pclce.exe"
+            },
+            "arm64": {
+                "url": "https://github.com/PCL-Community/PCL-CE/releases/download/v$version/PCL2_CE_Beta_ARM64.exe#/pclce.exe"
+            }
+        }
+    }
+}
