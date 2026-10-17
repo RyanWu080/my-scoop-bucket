@@ -14,13 +14,13 @@
             "bin": [
                 [
                     "HWiNFO64.exe",
-                    "HWiNFO"
+                    "hwinfo-beta"
                 ]
             ],
             "shortcuts": [
                 [
                     "HWiNFO64.exe",
-                    "HWiNFO"
+                    "HWiNFO Beta"
                 ]
             ]
         },
@@ -29,13 +29,13 @@
             "bin": [
                 [
                     "HWiNFO32.exe",
-                    "HWiNFO"
+                    "hwinfo-beta"
                 ]
             ],
             "shortcuts": [
                 [
                     "HWiNFO32.exe",
-                    "HWiNFO"
+                    "HWiNFO Beta"
                 ]
             ]
         },
@@ -44,13 +44,13 @@
             "bin": [
                 [
                     "HWiNFO_ARM64.exe",
-                    "HWiNFO"
+                    "hwinfo-beta"
                 ]
             ],
             "shortcuts": [
                 [
                     "HWiNFO_ARM64.exe",
-                    "HWiNFO"
+                    "HWiNFO Beta"
                 ]
             ]
         }
