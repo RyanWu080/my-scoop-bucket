@@ -17,7 +17,7 @@
 | `pcl-ce-beta` | [PCL CE 官方版](https://github.com/PCL-Community/PCL-CE) | 最新 release，包含正式版和 beta | x64、ARM64 |
 | `pcl-ce-unrestrict` | [PCL CE 解除地区限制版](https://github.com/RyanWu080/PCL-CE-unrestrict) | 仅正式版 | x64、ARM64 |
 | `pcl-ce-unrestrict-beta` | [PCL CE 解除地区限制版](https://github.com/RyanWu080/PCL-CE-unrestrict) | 最新 release，包含正式版和 beta | x64、ARM64 |
-| `hwinfo-beta` | [HWiNFO](https://www.hwinfo.com) | Beta（当前旧版下载链接失效，见下方说明） | x86、x64、ARM64 |
+| `hwinfo-beta` | [HWiNFO](https://www.hwinfo.com) | Beta | x86、x64、ARM64 |
 
 ### 安装
 
@@ -46,13 +46,13 @@ scoop install my-scoop-bucket/pcl-ce-unrestrict-beta
 scoop install my-scoop-bucket/hwinfo-beta
 ```
 
-### HWiNFO Beta 下载状态
+### HWiNFO Beta 更新来源
 
-2026-10-27 实测：当前 `hwinfo-beta` 清单指向 `8.55-6095`，其下载地址返回 HTTP 404，内容为错误页面，因此当前无法通过此清单正常下载安装。
+`hwinfo-beta` 从 [dAppCDN 的 HWiNFO 页面](https://dappcdn.com/download/utilities/hwinfo)中的 Beta ZIP 文件名检测版本，安装包仍从 HWiNFO 官网下载。该页面同时包含正式版与历史版本信息，检测规则使用 `hwi_主次版本_构建号.zip` 文件名，避免误用页面顶部的正式版版本号。
 
-[官方下载页](https://www.hwinfo.com/download/)当时提供的 Beta 为 `8.55-6110`，对应链接返回 HTTP 200，下载文件通过 ZIP 完整性检查。这表明当前问题是清单中的旧版地址失效；本次测试不代表所有网络环境的访问情况。
+2026-10-27 实测：GitHub Actions 访问官网版本页曾返回 HTTP 403，旧版 `8.55-6095` 下载地址返回 HTTP 404。清单现已更新为 `8.55-6110`；新版官网 ZIP 下载成功，完整性检查通过，SHA-256 与 dAppCDN 页面提供的值一致。
 
-在清单更新前，可从官方下载页手动下载当前 Beta。上方 Scoop 安装命令仍保留供清单修复后使用；自动更新工作流的成功状态不代表旧版下载链接仍然有效。
+备用版本检测页面不能保证官网安装包始终可下载；若安装失败，请查看 [HWiNFO 官方下载页](https://www.hwinfo.com/download/)和 [Excavator 运行日志](https://github.com/RyanWu080/my-scoop-bucket/actions/workflows/excavator.yml)。
 
 ### PCL CE 使用说明
 
@@ -103,7 +103,7 @@ A personal Windows software bucket for [Scoop](https://scoop.sh), providing inst
 | `pcl-ce-beta` | [Official PCL CE](https://github.com/PCL-Community/PCL-CE) | Latest release, including stable and beta | x64, ARM64 |
 | `pcl-ce-unrestrict` | [PCL CE fork with regional restrictions removed](https://github.com/RyanWu080/PCL-CE-unrestrict) | Stable releases only | x64, ARM64 |
 | `pcl-ce-unrestrict-beta` | [PCL CE fork with regional restrictions removed](https://github.com/RyanWu080/PCL-CE-unrestrict) | Latest release, including stable and beta | x64, ARM64 |
-| `hwinfo-beta` | [HWiNFO](https://www.hwinfo.com) | Beta (current manifest download unavailable; see below) | x86, x64, ARM64 |
+| `hwinfo-beta` | [HWiNFO](https://www.hwinfo.com) | Beta | x86, x64, ARM64 |
 
 ### Installation
 
@@ -132,13 +132,13 @@ scoop install my-scoop-bucket/pcl-ce-unrestrict-beta
 scoop install my-scoop-bucket/hwinfo-beta
 ```
 
-### HWiNFO Beta download status
+### HWiNFO Beta update source
 
-Tested on 2026-10-27: the current `hwinfo-beta` manifest points to `8.55-6095`. Its download URL returns HTTP 404 with an error page, so installation through this manifest currently fails.
+`hwinfo-beta` detects versions from Beta ZIP filenames on the [dAppCDN HWiNFO page](https://dappcdn.com/download/utilities/hwinfo). Installation archives are still downloaded from the official HWiNFO website. The page also lists stable and historical releases; detection uses the `hwi_<major-and-minor>_<build>.zip` filename rather than the stable version displayed at the top.
 
-The [official download page](https://www.hwinfo.com/download/) offered Beta `8.55-6110` at the time of testing. That download returned HTTP 200 and passed ZIP integrity checks. The observed issue is the outdated URL in the manifest; availability on other networks may differ.
+Verified on 2026-10-27: GitHub Actions previously received HTTP 403 from the official version page, and the old `8.55-6095` download URL returned HTTP 404. The manifest now uses `8.55-6110`. The official ZIP downloaded successfully, passed integrity checks, and matched the SHA-256 published on dAppCDN.
 
-Until the manifest is updated, download the current Beta manually from the official page. The Scoop installation command above is retained for use after the manifest is fixed. A successful automatic update workflow does not establish that an older download URL still works.
+Using an alternative version page does not guarantee that official installation archives remain accessible. If installation fails, check the [official HWiNFO download page](https://www.hwinfo.com/download/) and [Excavator logs](https://github.com/RyanWu080/my-scoop-bucket/actions/workflows/excavator.yml).
 
 ### PCL CE requirements
 

@@ -1,13 +1,13 @@
 {
-    "version": "8.55-6095",
+    "version": "8.55-6110",
     "description": "Beta version of HWiNFO: Comprehensive Hardware Analysis, Monitoring and Reporting for Windows and DOS.",
     "homepage": "https://www.hwinfo.com",
     "license": {
         "identifier": "Freeware",
         "url": "https://www.hwinfo.com/licenses/"
     },
-    "url": "https://www.hwinfo.com/files/hwi_855_6095.zip",
-    "hash": "ab4df38df1083c5cc4bbf96bf81125daff8333da42a9654f19aeadc1227e025e",
+    "url": "https://www.hwinfo.com/files/hwi_855_6110.zip",
+    "hash": "f6bfef5d462e87fe25f93ee0fd6e1bf92993396ea7116916e063837f6c63896f",
     "architecture": {
         "64bit": {
             "pre_install": "Get-ChildItem -Path $dir -Include '*32*', '*ARM*' -Recurse -File | Remove-Item -Force -ErrorAction SilentlyContinue",
@@ -76,7 +76,7 @@
         ]
     },
     "checkver": {
-        "url": "https://www.hwinfo.com/download/",
+        "url": "https://dappcdn.com/download/utilities/hwinfo",
         "regex": "hwi_(?<major>\\d)(?<minor>\\d{2})_(?<build>\\d+)\\.zip",
         "replace": "${major}.${minor}-${build}"
     },
