@@ -1,6 +1,6 @@
 {
-    "version": "2.15.1-beta.1",
-    "description": "Beta version of PCL Community Edition: A community-developed Minecraft launcher.",
+    "version": "2.15.1",
+    "description": "PCL Community Edition: Latest release, including beta versions.",
     "homepage": "https://github.com/PCL-Community/PCL-CE",
     "license": {
         "identifier": "Freeware",
@@ -12,12 +12,12 @@
     ],
     "architecture": {
         "64bit": {
-            "url": "https://github.com/PCL-Community/PCL-CE/releases/download/v2.15.1-beta.1/PCL2_CE_Beta_x64.exe#/pcl-ce.exe",
-            "hash": "fc3d56fdae2ba58968b4caac40266b35e2b5552d4274c78af30213b0c491a39a"
+            "url": "https://github.com/PCL-Community/PCL-CE/releases/download/v2.15.1/PCL2_CE_Release_x64.exe#/pcl-ce.exe",
+            "hash": "168bd8369d5ed4e5478942677562913330ef1d30a5193870af910bd18198050c"
         },
         "arm64": {
-            "url": "https://github.com/PCL-Community/PCL-CE/releases/download/v2.15.1-beta.1/PCL2_CE_Beta_ARM64.exe#/pcl-ce.exe",
-            "hash": "5c333dc02212eb339e6521aa789a130ab9b557b5bf5ee8942bb008a663e84d1a"
+            "url": "https://github.com/PCL-Community/PCL-CE/releases/download/v2.15.1/PCL2_CE_Release_ARM64.exe#/pcl-ce.exe",
+            "hash": "e4f6a027b85c06730a038aa3fe9656b4dd63a026f181856d6c190926761606da"
         }
     },
     "bin": [
@@ -38,16 +38,19 @@
     ],
     "checkver": {
         "url": "https://api.github.com/repos/PCL-Community/PCL-CE/releases?per_page=100",
-        "jsonpath": "$[?(@.prerelease == true)].tag_name",
-        "regex": "v(\\d+\\.\\d+\\.\\d+-beta\\.\\d+)"
+        "script": [
+            "$release = $page | ConvertFrom-Json | Where-Object { !$_.draft } | Sort-Object -Property published_at -Descending | Select-Object -First 1",
+            "$release.assets.browser_download_url"
+        ],
+        "regex": "/v(?<version>\\d+\\.\\d+\\.\\d+(?:-beta\\.\\d+)?)/PCL2_CE_(?<channel>Release|Beta)_x64\\.exe"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/PCL-Community/PCL-CE/releases/download/v$version/PCL2_CE_Beta_x64.exe#/pcl-ce.exe"
+                "url": "https://github.com/PCL-Community/PCL-CE/releases/download/v$version/PCL2_CE_$matchChannel_x64.exe#/pcl-ce.exe"
             },
             "arm64": {
-                "url": "https://github.com/PCL-Community/PCL-CE/releases/download/v$version/PCL2_CE_Beta_ARM64.exe#/pcl-ce.exe"
+                "url": "https://github.com/PCL-Community/PCL-CE/releases/download/v$version/PCL2_CE_$matchChannel_ARM64.exe#/pcl-ce.exe"
             }
         }
     }
