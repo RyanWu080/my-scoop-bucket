@@ -7,178 +7,84 @@
 
 ## 中文
 
-用于 [Scoop](https://scoop.sh) 的个人 Windows 软件桶，提供 PCL CE 官方版、解除地区限制版及 HWiNFO Beta 的安装与更新清单。
+个人 [Scoop](https://scoop.sh) 软件桶，提供 PCL CE 官方版、解除地区限制版及 HWiNFO Beta。
 
 ### 软件清单
 
-| 包名 | 软件来源 | 更新渠道 | 支持架构 |
+| 包名 | 软件来源 | 更新渠道 | 架构 |
 | --- | --- | --- | --- |
-| `pcl-ce` | [PCL CE 官方版](https://github.com/PCL-Community/PCL-CE) | 仅正式版 | x64、ARM64 |
-| `pcl-ce-beta` | [PCL CE 官方版](https://github.com/PCL-Community/PCL-CE) | 最新 release，包含正式版和 beta | x64、ARM64 |
-| `pcl-ce-unrestrict` | [PCL CE 解除地区限制版](https://github.com/RyanWu080/PCL-CE-unrestrict) | 仅正式版 | x64、ARM64 |
-| `pcl-ce-unrestrict-beta` | [PCL CE 解除地区限制版](https://github.com/RyanWu080/PCL-CE-unrestrict) | 最新 release，包含正式版和 beta | x64、ARM64 |
+| `pcl-ce` | [PCL CE 官方版](https://github.com/PCL-Community/PCL-CE) | 正式版 | x64、ARM64 |
+| `pcl-ce-beta` | [PCL CE 官方版](https://github.com/PCL-Community/PCL-CE) | 最新 release，含正式版和 beta | x64、ARM64 |
+| `pcl-ce-unrestrict` | [解除地区限制版](https://github.com/RyanWu080/PCL-CE-unrestrict) | 正式版 | x64、ARM64 |
+| `pcl-ce-unrestrict-beta` | [解除地区限制版](https://github.com/RyanWu080/PCL-CE-unrestrict) | 最新 release，含正式版和 beta | x64、ARM64 |
 | `hwinfo-beta` | [HWiNFO](https://www.hwinfo.com) | Beta | x86、x64、ARM64 |
 
-### 安装
+### 安装与更新
 
-先安装 Scoop，再添加此软件桶：
+安装 Scoop 后，添加软件桶并选择上表中的包名。以下以 `pcl-ce-unrestrict-beta` 为例：
 
 ```powershell
 scoop bucket add my-scoop-bucket https://github.com/RyanWu080/my-scoop-bucket
-```
-
-按需选择软件包安装：
-
-```powershell
-# PCL CE 官方正式版
-scoop install my-scoop-bucket/pcl-ce
-
-# PCL CE 官方最新 release，包含 beta
-scoop install my-scoop-bucket/pcl-ce-beta
-
-# PCL CE 解除地区限制版（正式版）
-scoop install my-scoop-bucket/pcl-ce-unrestrict
-
-# PCL CE 解除地区限制版最新 release，包含 beta
 scoop install my-scoop-bucket/pcl-ce-unrestrict-beta
 
-# HWiNFO Beta 硬件检测与监控工具
-scoop install my-scoop-bucket/hwinfo-beta
-```
-
-### HWiNFO Beta 更新来源
-
-`hwinfo-beta` 从 HWiNFO 官方更新接口 [`ver.txt`](https://www.hwinfo.com/ver.txt) 检测 Beta 版本。接口第一行为正式版，第二行为 Beta；清单读取第二行生成新版下载地址。
-
-2026-10-27 已在 GitHub 托管的 Windows runner 中验证该接口可用于 Scoop 自动检测。官网及 dAppCDN 的下载网页此前均返回 HTTP 403，因此不再依赖网页抓取。当前清单使用 `8.55-6110`。
-
-x64、ARM64 使用该官方接口中公布的 `dl.dappcdn.com` 固定更新包地址，无需浏览器验证或临时签名。已验证两个更新包中的程序与完整 ZIP 内对应的 EXE 完全一致；Scoop 安装时删除包内更新批处理，仍由 Scoop 管理更新。x64 下载也已通过本地用户测试。
-
-32 位暂时保留官网完整 ZIP 地址，部分网络环境可能返回 HTTP 403。此限制尚未解决，32 位用户可通过[官方下载页](https://www.hwinfo.com/download/)在浏览器中下载。
-
-Excavator 每 4 小时检测更新，并在更新后检查官方 Beta 版本是否与清单一致。工作流还会实际下载 x64、ARM64 更新包并核对 SHA-256。接口访问失败、格式不匹配或新版未成功写入清单时，工作流会报错，具体原因可查看 [Excavator 日志](https://github.com/RyanWu080/my-scoop-bucket/actions/workflows/excavator.yml)。
-
-### PCL CE 使用说明
-
-#### 运行环境
-
-四个 PCL CE 软件包均需要 Microsoft .NET 10 Desktop Runtime。若尚未安装，可执行：
-
-```powershell
-scoop bucket add extras
-scoop install extras/windowsdesktop-runtime
-```
-
-#### 更新渠道
-
-`pcl-ce` 和 `pcl-ce-unrestrict` 仅跟踪各自仓库的正式版。
-
-`pcl-ce-beta` 和 `pcl-ce-unrestrict-beta` 按发布时间跟踪各自仓库的最新 release，同时检查正式版和 beta，自动匹配 `Release` 或 `Beta` 可执行文件。正式版发布晚于 beta 时，会更新到正式版；后续发布新 beta 时，继续跟踪新 beta。
-
-建议通过 Scoop 更新，并在启动器设置中关闭自动下载更新：
-
-```powershell
+# 刷新清单并更新软件
 scoop update
-# 将包名替换为实际安装的版本
 scoop update pcl-ce-unrestrict-beta
 ```
 
-#### 命令与数据保存
+### 使用说明
 
-四个 PCL CE 软件包使用不同的命令和开始菜单快捷方式，命令与包名一致。
+- **PCL CE**：需要 Microsoft .NET 10 Desktop Runtime，可通过以下命令安装：
 
-各包的 `PCL` 和 `.minecraft` 目录会分别持久化，更新时保留。启动器存放在 AppData 中的设置仍可能在不同版本之间共享。
+  ```powershell
+  scoop bucket add extras
+  scoop install extras/windowsdesktop-runtime
+  ```
 
-### 清单维护
+- **更新渠道**：PCL CE 的 beta 包跟踪各自仓库最新发布的 release，正式版发布后也会跟进。建议关闭启动器自动下载更新，统一使用 Scoop 更新。
+- **数据保存**：各 PCL CE 包使用独立命令和开始菜单快捷方式，并分别保留 `PCL`、`.minecraft` 目录；AppData 中的设置仍可能共享。
+- **HWiNFO Beta**：x64、ARM64 使用官方更新接口公布的固定更新包地址。x86 仍使用官网 ZIP，部分网络可能返回 403；可改用[官方下载页](https://www.hwinfo.com/download/)在浏览器中下载。
 
-仓库配置了 CI 检查，以及每 4 小时运行一次的 Excavator 自动更新工作流。清单中的 `checkver` 用于检测版本，`autoupdate` 用于生成新版下载地址。
-
-新增或修改清单时，可参考 Scoop 的 [App Manifests 文档](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)和[贡献指南](https://github.com/ScoopInstaller/.github/blob/main/.github/CONTRIBUTING.md)。
+仓库每 4 小时检查更新，并校验 HWiNFO Beta 的版本及 x64、ARM64 下载哈希。运行结果见 [Excavator](https://github.com/RyanWu080/my-scoop-bucket/actions/workflows/excavator.yml)；清单格式参考 [Scoop 文档](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)。
 
 ## English
 
-A personal Windows software bucket for [Scoop](https://scoop.sh), providing installation and update manifests for official PCL CE, a fork with regional restrictions removed, and HWiNFO Beta.
+A personal [Scoop](https://scoop.sh) bucket for official PCL CE, a fork with regional restrictions removed, and HWiNFO Beta.
 
 ### Packages
 
 | Package | Source | Update channel | Architectures |
 | --- | --- | --- | --- |
-| `pcl-ce` | [Official PCL CE](https://github.com/PCL-Community/PCL-CE) | Stable releases only | x64, ARM64 |
+| `pcl-ce` | [Official PCL CE](https://github.com/PCL-Community/PCL-CE) | Stable | x64, ARM64 |
 | `pcl-ce-beta` | [Official PCL CE](https://github.com/PCL-Community/PCL-CE) | Latest release, including stable and beta | x64, ARM64 |
-| `pcl-ce-unrestrict` | [PCL CE fork with regional restrictions removed](https://github.com/RyanWu080/PCL-CE-unrestrict) | Stable releases only | x64, ARM64 |
-| `pcl-ce-unrestrict-beta` | [PCL CE fork with regional restrictions removed](https://github.com/RyanWu080/PCL-CE-unrestrict) | Latest release, including stable and beta | x64, ARM64 |
+| `pcl-ce-unrestrict` | [Fork with regional restrictions removed](https://github.com/RyanWu080/PCL-CE-unrestrict) | Stable | x64, ARM64 |
+| `pcl-ce-unrestrict-beta` | [Fork with regional restrictions removed](https://github.com/RyanWu080/PCL-CE-unrestrict) | Latest release, including stable and beta | x64, ARM64 |
 | `hwinfo-beta` | [HWiNFO](https://www.hwinfo.com) | Beta | x86, x64, ARM64 |
 
-### Installation
+### Installation and updates
 
-Install Scoop first, then add this bucket:
+After installing Scoop, add this bucket and choose a package from the table. This example uses `pcl-ce-unrestrict-beta`:
 
 ```powershell
 scoop bucket add my-scoop-bucket https://github.com/RyanWu080/my-scoop-bucket
-```
-
-Choose the packages you want to install:
-
-```powershell
-# Official PCL CE: stable releases
-scoop install my-scoop-bucket/pcl-ce
-
-# Official PCL CE: latest release, including betas
-scoop install my-scoop-bucket/pcl-ce-beta
-
-# PCL CE fork with regional restrictions removed: stable releases
-scoop install my-scoop-bucket/pcl-ce-unrestrict
-
-# PCL CE fork with regional restrictions removed: latest release, including betas
 scoop install my-scoop-bucket/pcl-ce-unrestrict-beta
 
-# HWiNFO Beta: hardware analysis and monitoring
-scoop install my-scoop-bucket/hwinfo-beta
-```
-
-### HWiNFO Beta update source
-
-`hwinfo-beta` detects Beta versions from the official HWiNFO update feed, [`ver.txt`](https://www.hwinfo.com/ver.txt). Its first line contains the stable version and its second line contains the Beta version. The manifest reads the second line to generate updated download URLs.
-
-Verified on 2026-10-27: Scoop successfully accessed and parsed this feed on a GitHub-hosted Windows runner. The official and dAppCDN download webpages previously returned HTTP 403, so detection no longer depends on scraping those pages. The current manifest uses `8.55-6110`.
-
-x64 and ARM64 use the fixed `dl.dappcdn.com` update archive URLs published in the official feed. These do not require browser verification or expiring signatures. Both executables were verified as identical to their counterparts in the full ZIP. Scoop removes the bundled update batch files and continues to manage updates. The x64 download also passed a local user test.
-
-32-bit Windows still uses the full ZIP from the official website, which may return HTTP 403 on some networks. This limitation remains unresolved; 32-bit users can download through the [official download page](https://www.hwinfo.com/download/) in a browser.
-
-Excavator checks every four hours and verifies that the manifest matches the official Beta version after updating. The workflow also downloads the x64 and ARM64 archives and verifies their SHA-256 hashes. Feed access failures, unexpected feed formats, or updates that were not applied cause the workflow to fail. See the [Excavator logs](https://github.com/RyanWu080/my-scoop-bucket/actions/workflows/excavator.yml) for details.
-
-### PCL CE requirements
-
-All four PCL CE packages require Microsoft .NET 10 Desktop Runtime. If needed, install it with:
-
-```powershell
-scoop bucket add extras
-scoop install extras/windowsdesktop-runtime
-```
-
-### PCL CE updates
-
-`pcl-ce` and `pcl-ce-unrestrict` track stable releases only, each from its own upstream repository.
-
-`pcl-ce-beta` and `pcl-ce-unrestrict-beta` track the most recently published release from their respective repositories, including both stable and beta releases. They automatically select the matching `Release` or `Beta` executable. When a stable release is published after a beta, these packages update to that stable release and continue tracking future betas.
-
-Use Scoop for updates and disable automatic update downloads in the launcher's settings:
-
-```powershell
+# Refresh manifests and update the package
 scoop update
-# Replace the package name with the one you installed
 scoop update pcl-ce-unrestrict-beta
 ```
 
-### PCL CE commands and data
+### Notes
 
-Each PCL CE package has a distinct command and Start Menu shortcut. The command matches the package name.
+- **PCL CE** requires Microsoft .NET 10 Desktop Runtime. Install it with:
 
-Each package preserves its own `PCL` and `.minecraft` directories across updates. Settings stored by the launcher in AppData may still be shared between packages.
+  ```powershell
+  scoop bucket add extras
+  scoop install extras/windowsdesktop-runtime
+  ```
 
-### Manifest maintenance
+- **Update channels**: PCL CE beta packages follow the most recently published release from their respective repositories, including stable releases. Disable automatic update downloads in the launcher and use Scoop for updates.
+- **Data**: Each PCL CE package has a distinct command and Start Menu shortcut and preserves its own `PCL` and `.minecraft` directories. AppData settings may still be shared.
+- **HWiNFO Beta**: x64 and ARM64 use fixed update archive URLs published in the official update feed. x86 still uses the official ZIP, which may return HTTP 403 on some networks; download through the [official page](https://www.hwinfo.com/download/) in a browser if needed.
 
-The repository includes CI checks and an Excavator workflow scheduled to run every four hours. Manifest `checkver` rules detect new versions, and `autoupdate` rules generate updated download URLs.
-
-For new or updated manifests, see Scoop's [App Manifests documentation](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests) and [contribution guide](https://github.com/ScoopInstaller/.github/blob/main/.github/CONTRIBUTING.md).
+Updates are checked every four hours, including HWiNFO Beta version checks and x64/ARM64 download hash verification. See [Excavator](https://github.com/RyanWu080/my-scoop-bucket/actions/workflows/excavator.yml) for results and the [Scoop documentation](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests) for manifest guidelines.
