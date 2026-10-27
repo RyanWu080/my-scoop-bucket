@@ -76,8 +76,8 @@
         ]
     },
     "checkver": {
-        "url": "https://www.hwinfo.com/download/",
-        "regex": "hwi_(?<major>\\d)(?<minor>\\d{2})_(?<build>\\d+)\\.zip",
+        "url": "https://www.hwinfo.com/ver.txt",
+        "regex": "^\\d+\\.\\d+-\\d+\\r?\\n(?<major>\\d+)\\.(?<minor>\\d+)-(?<build>\\d+)",
         "replace": "${major}.${minor}-${build}"
     },
     "autoupdate": {
