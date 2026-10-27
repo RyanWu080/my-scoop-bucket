@@ -48,11 +48,15 @@ scoop install my-scoop-bucket/hwinfo-beta
 
 ### HWiNFO Beta 更新来源
 
-`hwinfo-beta` 从 HWiNFO 官方更新接口 [`ver.txt`](https://www.hwinfo.com/ver.txt) 检测 Beta 版本。接口第一行为正式版，第二行为 Beta；清单读取第二行，并据此生成官网 ZIP 下载地址。
+`hwinfo-beta` 从 HWiNFO 官方更新接口 [`ver.txt`](https://www.hwinfo.com/ver.txt) 检测 Beta 版本。接口第一行为正式版，第二行为 Beta；清单读取第二行生成新版下载地址。
 
-2026-10-27 已在 GitHub 托管的 Windows runner 中验证该接口可用于 Scoop 自动检测。官网及 dAppCDN 的下载网页此前均返回 HTTP 403，因此不再依赖网页抓取。当前清单使用 `8.55-6110`，官网 ZIP 已通过下载、完整性及 SHA-256 校验。
+2026-10-27 已在 GitHub 托管的 Windows runner 中验证该接口可用于 Scoop 自动检测。官网及 dAppCDN 的下载网页此前均返回 HTTP 403，因此不再依赖网页抓取。当前清单使用 `8.55-6110`。
 
-Excavator 每 4 小时检测更新，并在更新后检查官方 Beta 版本是否与清单一致。接口访问失败、格式不匹配或新版未成功写入清单时，工作流会报错，具体原因可查看 [Excavator 日志](https://github.com/RyanWu080/my-scoop-bucket/actions/workflows/excavator.yml)。
+x64、ARM64 使用该官方接口中公布的 `dl.dappcdn.com` 固定更新包地址，无需浏览器验证或临时签名。已验证两个更新包中的程序与完整 ZIP 内对应的 EXE 完全一致；Scoop 安装时删除包内更新批处理，仍由 Scoop 管理更新。x64 下载也已通过本地用户测试。
+
+32 位暂时保留官网完整 ZIP 地址，部分网络环境可能返回 HTTP 403。此限制尚未解决，32 位用户可通过[官方下载页](https://www.hwinfo.com/download/)在浏览器中下载。
+
+Excavator 每 4 小时检测更新，并在更新后检查官方 Beta 版本是否与清单一致。工作流还会实际下载 x64、ARM64 更新包并核对 SHA-256。接口访问失败、格式不匹配或新版未成功写入清单时，工作流会报错，具体原因可查看 [Excavator 日志](https://github.com/RyanWu080/my-scoop-bucket/actions/workflows/excavator.yml)。
 
 ### PCL CE 使用说明
 
@@ -134,11 +138,15 @@ scoop install my-scoop-bucket/hwinfo-beta
 
 ### HWiNFO Beta update source
 
-`hwinfo-beta` detects Beta versions from the official HWiNFO update feed, [`ver.txt`](https://www.hwinfo.com/ver.txt). Its first line contains the stable version and its second line contains the Beta version. The manifest reads the second line and uses it to generate the official ZIP download URL.
+`hwinfo-beta` detects Beta versions from the official HWiNFO update feed, [`ver.txt`](https://www.hwinfo.com/ver.txt). Its first line contains the stable version and its second line contains the Beta version. The manifest reads the second line to generate updated download URLs.
 
-Verified on 2026-10-27: Scoop successfully accessed and parsed this feed on a GitHub-hosted Windows runner. The official and dAppCDN download webpages previously returned HTTP 403, so detection no longer depends on scraping those pages. The current manifest uses `8.55-6110`; its official ZIP passed download, integrity, and SHA-256 checks.
+Verified on 2026-10-27: Scoop successfully accessed and parsed this feed on a GitHub-hosted Windows runner. The official and dAppCDN download webpages previously returned HTTP 403, so detection no longer depends on scraping those pages. The current manifest uses `8.55-6110`.
 
-Excavator checks every four hours and verifies that the manifest matches the official Beta version after updating. Feed access failures, unexpected feed formats, or updates that were not applied cause the workflow to fail. See the [Excavator logs](https://github.com/RyanWu080/my-scoop-bucket/actions/workflows/excavator.yml) for details.
+x64 and ARM64 use the fixed `dl.dappcdn.com` update archive URLs published in the official feed. These do not require browser verification or expiring signatures. Both executables were verified as identical to their counterparts in the full ZIP. Scoop removes the bundled update batch files and continues to manage updates. The x64 download also passed a local user test.
+
+32-bit Windows still uses the full ZIP from the official website, which may return HTTP 403 on some networks. This limitation remains unresolved; 32-bit users can download through the [official download page](https://www.hwinfo.com/download/) in a browser.
+
+Excavator checks every four hours and verifies that the manifest matches the official Beta version after updating. The workflow also downloads the x64 and ARM64 archives and verifies their SHA-256 hashes. Feed access failures, unexpected feed formats, or updates that were not applied cause the workflow to fail. See the [Excavator logs](https://github.com/RyanWu080/my-scoop-bucket/actions/workflows/excavator.yml) for details.
 
 ### PCL CE requirements
 

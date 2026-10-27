@@ -35,3 +35,21 @@ jobs:
           if ($version -ne $manifest.version) {
               throw "HWiNFO Beta was not updated to $version. Check the Excavator download and hash logs."
           }
+      - name: Verify HWiNFO Beta download hashes
+        shell: pwsh
+        run: |
+          $manifest = Get-Content ./bucket/hwinfo-beta.json -Raw | ConvertFrom-Json
+          foreach ($arch in @('64bit', 'arm64')) {
+              $package = $manifest.architecture.$arch
+              $archive = Join-Path $env:RUNNER_TEMP "hwinfo-beta-$arch.7z"
+              try {
+                  Invoke-WebRequest -Uri $package.url -OutFile $archive -TimeoutSec 120 -ErrorAction Stop
+                  $actualHash = (Get-FileHash -Path $archive -Algorithm SHA256).Hash
+                  if ($actualHash -ne $package.hash) {
+                      throw "HWiNFO Beta $arch download hash mismatch."
+                  }
+                  Write-Host "hwinfo-beta: $arch download and SHA-256 verified"
+              } finally {
+                  Remove-Item $archive -Force -ErrorAction SilentlyContinue
+              }
+          }

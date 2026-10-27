@@ -10,7 +10,7 @@
     "hash": "f6bfef5d462e87fe25f93ee0fd6e1bf92993396ea7116916e063837f6c63896f",
     "architecture": {
         "64bit": {
-            "pre_install": "Get-ChildItem -Path $dir -Include '*32*', '*ARM*' -Recurse -File | Remove-Item -Force -ErrorAction SilentlyContinue",
+            "pre_install": "Remove-Item \"$dir\\update*.bat\" -Force -ErrorAction SilentlyContinue",
             "bin": [
                 [
                     "HWiNFO64.exe",
@@ -22,7 +22,9 @@
                     "HWiNFO64.exe",
                     "HWiNFO Beta"
                 ]
-            ]
+            ],
+            "url": "https://dl.dappcdn.com/hwinfo/hwi64upd_855_6110.7z",
+            "hash": "49b9d7773e07a463ba9699e3123d244423387e50549582c686276aa652d4e4ae"
         },
         "32bit": {
             "pre_install": "Get-ChildItem -Path $dir -Include '*64*' -Recurse -File | Remove-Item -Force -ErrorAction SilentlyContinue",
@@ -40,7 +42,7 @@
             ]
         },
         "arm64": {
-            "pre_install": "Get-ChildItem -Path $dir -Exclude '*ARM*' -Recurse -File | Remove-Item -Force -ErrorAction SilentlyContinue",
+            "pre_install": "Remove-Item \"$dir\\update*.bat\" -Force -ErrorAction SilentlyContinue",
             "bin": [
                 [
                     "HWiNFO_ARM64.exe",
@@ -52,7 +54,9 @@
                     "HWiNFO_ARM64.exe",
                     "HWiNFO Beta"
                 ]
-            ]
+            ],
+            "url": "https://dl.dappcdn.com/hwinfo/hwiARM64upd_855_6110.7z",
+            "hash": "26b1877fce8bdcee8066b5cc5df0d80bb8affb5f440d400f33b195c9af465567"
         }
     },
     "installer": {
@@ -81,6 +85,14 @@
         "replace": "${major}.${minor}-${build}"
     },
     "autoupdate": {
-        "url": "https://www.hwinfo.com/files/hwi_$matchMajor$matchMinor_$matchBuild.zip"
+        "url": "https://www.hwinfo.com/files/hwi_$matchMajor$matchMinor_$matchBuild.zip",
+        "architecture": {
+            "64bit": {
+                "url": "https://dl.dappcdn.com/hwinfo/hwi64upd_$matchMajor$matchMinor_$matchBuild.7z"
+            },
+            "arm64": {
+                "url": "https://dl.dappcdn.com/hwinfo/hwiARM64upd_$matchMajor$matchMinor_$matchBuild.7z"
+            }
+        }
     }
 }
