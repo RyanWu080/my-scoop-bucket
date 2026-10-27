@@ -76,16 +76,9 @@
         ]
     },
     "checkver": {
-        "url": "https://dappcdn.com/download/utilities/hwinfo",
+        "url": "https://www.hwinfo.com/download/",
         "regex": "hwi_(?<major>\\d)(?<minor>\\d{2})_(?<build>\\d+)\\.zip",
-        "replace": "${major}.${minor}-${build}",
-        "script": [
-            "if ($page) { $page } else {",
-            "    $content = & curl.exe --fail --location --silent --show-error --connect-timeout 15 --max-time 45 'https://dappcdn.com/download/utilities/hwinfo'",
-            "    if ($LASTEXITCODE -ne 0) { throw 'Unable to retrieve the HWiNFO Beta version page with curl.' }",
-            "    $content",
-            "}"
-        ]
+        "replace": "${major}.${minor}-${build}"
     },
     "autoupdate": {
         "url": "https://www.hwinfo.com/files/hwi_$matchMajor$matchMinor_$matchBuild.zip"
