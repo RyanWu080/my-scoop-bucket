@@ -7,7 +7,7 @@
 
 ## 中文
 
-用于 [Scoop](https://scoop.sh) 的个人 Windows 软件桶，提供 PCL CE 官方版、解限版及 HWiNFO Beta 的安装与更新清单。
+用于 [Scoop](https://scoop.sh) 的个人 Windows 软件桶，提供 PCL CE 官方版、解除地区限制版及 HWiNFO Beta 的安装与更新清单。
 
 ### 软件清单
 
@@ -15,8 +15,8 @@
 | --- | --- | --- | --- |
 | `pcl-ce` | [PCL CE 官方版](https://github.com/PCL-Community/PCL-CE) | 仅正式版 | x64、ARM64 |
 | `pcl-ce-beta` | [PCL CE 官方版](https://github.com/PCL-Community/PCL-CE) | 最新 release，包含正式版和 beta | x64、ARM64 |
-| `pcl-ce-unrestrict` | [PCL CE 解限版](https://github.com/RyanWu080/PCL-CE-unrestrict) | 仅正式版 | x64、ARM64 |
-| `pcl-ce-unrestrict-beta` | [PCL CE 解限版](https://github.com/RyanWu080/PCL-CE-unrestrict) | 最新 release，包含正式版和 beta | x64、ARM64 |
+| `pcl-ce-unrestrict` | [PCL CE 解除地区限制版](https://github.com/RyanWu080/PCL-CE-unrestrict) | 仅正式版 | x64、ARM64 |
+| `pcl-ce-unrestrict-beta` | [PCL CE 解除地区限制版](https://github.com/RyanWu080/PCL-CE-unrestrict) | 最新 release，包含正式版和 beta | x64、ARM64 |
 | `hwinfo-beta` | [HWiNFO](https://www.hwinfo.com) | Beta | x86、x64、ARM64 |
 
 ### 安装
@@ -36,10 +36,10 @@ scoop install my-scoop-bucket/pcl-ce
 # PCL CE 官方最新 release，包含 beta
 scoop install my-scoop-bucket/pcl-ce-beta
 
-# PCL CE 解限正式版
+# PCL CE 解除地区限制版（正式版）
 scoop install my-scoop-bucket/pcl-ce-unrestrict
 
-# PCL CE 解限版最新 release，包含 beta
+# PCL CE 解除地区限制版最新 release，包含 beta
 scoop install my-scoop-bucket/pcl-ce-unrestrict-beta
 
 # HWiNFO Beta 硬件检测与监控工具
@@ -85,7 +85,7 @@ scoop update pcl-ce-unrestrict-beta
 
 ## English
 
-A personal Windows software bucket for [Scoop](https://scoop.sh), providing installation and update manifests for official PCL CE, the unrestricted fork, and HWiNFO Beta.
+A personal Windows software bucket for [Scoop](https://scoop.sh), providing installation and update manifests for official PCL CE, a fork with regional restrictions removed, and HWiNFO Beta.
 
 ### Packages
 
@@ -93,8 +93,8 @@ A personal Windows software bucket for [Scoop](https://scoop.sh), providing inst
 | --- | --- | --- | --- |
 | `pcl-ce` | [Official PCL CE](https://github.com/PCL-Community/PCL-CE) | Stable releases only | x64, ARM64 |
 | `pcl-ce-beta` | [Official PCL CE](https://github.com/PCL-Community/PCL-CE) | Latest release, including stable and beta | x64, ARM64 |
-| `pcl-ce-unrestrict` | [PCL CE unrestricted fork](https://github.com/RyanWu080/PCL-CE-unrestrict) | Stable releases only | x64, ARM64 |
-| `pcl-ce-unrestrict-beta` | [PCL CE unrestricted fork](https://github.com/RyanWu080/PCL-CE-unrestrict) | Latest release, including stable and beta | x64, ARM64 |
+| `pcl-ce-unrestrict` | [PCL CE fork with regional restrictions removed](https://github.com/RyanWu080/PCL-CE-unrestrict) | Stable releases only | x64, ARM64 |
+| `pcl-ce-unrestrict-beta` | [PCL CE fork with regional restrictions removed](https://github.com/RyanWu080/PCL-CE-unrestrict) | Latest release, including stable and beta | x64, ARM64 |
 | `hwinfo-beta` | [HWiNFO](https://www.hwinfo.com) | Beta | x86, x64, ARM64 |
 
 ### Installation
@@ -114,10 +114,10 @@ scoop install my-scoop-bucket/pcl-ce
 # Official PCL CE: latest release, including betas
 scoop install my-scoop-bucket/pcl-ce-beta
 
-# PCL CE unrestricted fork: stable releases
+# PCL CE fork with regional restrictions removed: stable releases
 scoop install my-scoop-bucket/pcl-ce-unrestrict
 
-# PCL CE unrestricted fork: latest release, including betas
+# PCL CE fork with regional restrictions removed: latest release, including betas
 scoop install my-scoop-bucket/pcl-ce-unrestrict-beta
 
 # HWiNFO Beta: hardware analysis and monitoring

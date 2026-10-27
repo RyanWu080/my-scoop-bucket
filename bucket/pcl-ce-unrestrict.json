@@ -1,6 +1,6 @@
 {
     "version": "2.15.1",
-    "description": "Unrestricted fork of PCL Community Edition: A community-developed Minecraft launcher.",
+    "description": "PCL Community Edition fork with regional restrictions removed: A community-developed Minecraft launcher.",
     "homepage": "https://github.com/RyanWu080/PCL-CE-unrestrict",
     "license": {
         "identifier": "Freeware",
