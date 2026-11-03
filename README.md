@@ -7,7 +7,7 @@
 
 ## 中文
 
-个人 [Scoop](https://scoop.sh) 软件桶，提供 PCL CE 官方版、解除地区限制版、HWiNFO Beta 及 DLSS 5 Manager。
+个人 [Scoop](https://scoop.sh) 软件桶，提供 PCL CE 官方版、解除地区限制版、HWiNFO Beta、DLSS 5 Manager 及 QuickInput。
 
 ### 软件清单
 
@@ -19,6 +19,7 @@
 | `pcl-ce-unrestrict-beta` | [解除地区限制版](https://github.com/RyanWu080/PCL-CE-unrestrict) | 最新 release，含正式版和 beta | x64、ARM64 |
 | `hwinfo-beta` | [HWiNFO](https://www.hwinfo.com) | Beta | x86、x64、ARM64 |
 | `dlss-5-manager` | [DLSS 5 Manager](https://github.com/NODIX-TECH/DLSS-5-MANAGER) | 正式版 | x64 |
+| `quickinput` | [QuickInput](https://github.com/ChiyukiGana/Quickinput) | 正式版 | x64 |
 
 ### 安装与更新
 
@@ -34,6 +35,8 @@ scoop update pcl-ce-unrestrict-beta
 ```
 
 ### 使用说明
+
+- **QuickInput**：键盘鼠标宏自动化工具，需要 Windows 10 1903 或更高版本。运行 `scoop install my-scoop-bucket/quickinput` 安装，通过 `quickinput` 命令或开始菜单启动；更新时保留配置、宏、语言、样式及 OCR 目录。
 
 - **DLSS 5 Manager**：使用自带 .NET 8 运行时的 x64 免安装包。运行 `scoop install my-scoop-bucket/dlss-5-manager` 安装，使用 `dlss-5-manager` 命令或开始菜单快捷方式启动；配置、缓存及备份保存在 `%LOCALAPPDATA%\DLSS5Manager`。
 
@@ -52,7 +55,7 @@ scoop update pcl-ce-unrestrict-beta
 
 ## English
 
-A personal [Scoop](https://scoop.sh) bucket for official PCL CE, a fork with regional restrictions removed, HWiNFO Beta, and DLSS 5 Manager.
+A personal [Scoop](https://scoop.sh) bucket for official PCL CE, a fork with regional restrictions removed, HWiNFO Beta, DLSS 5 Manager, and QuickInput.
 
 ### Packages
 
@@ -64,6 +67,7 @@ A personal [Scoop](https://scoop.sh) bucket for official PCL CE, a fork with reg
 | `pcl-ce-unrestrict-beta` | [Fork with regional restrictions removed](https://github.com/RyanWu080/PCL-CE-unrestrict) | Latest release, including stable and beta | x64, ARM64 |
 | `hwinfo-beta` | [HWiNFO](https://www.hwinfo.com) | Beta | x86, x64, ARM64 |
 | `dlss-5-manager` | [DLSS 5 Manager](https://github.com/NODIX-TECH/DLSS-5-MANAGER) | Stable | x64 |
+| `quickinput` | [QuickInput](https://github.com/ChiyukiGana/Quickinput) | Stable | x64 |
 
 ### Installation and updates
 
@@ -79,6 +83,8 @@ scoop update pcl-ce-unrestrict-beta
 ```
 
 ### Notes
+
+- **QuickInput**: Keyboard and mouse macro automation tool requiring Windows 10 1903 or later. Install with `scoop install my-scoop-bucket/quickinput` and launch via `quickinput` or the Start Menu. Configuration, macros, languages, styles, and the OCR directory persist across updates.
 
 - **DLSS 5 Manager**: Uses the portable x64 archive with the .NET 8 runtime included. Install with `scoop install my-scoop-bucket/dlss-5-manager` and launch via `dlss-5-manager` or the Start Menu shortcut. Settings, caches, and backups are stored in `%LOCALAPPDATA%\DLSS5Manager`.
 
