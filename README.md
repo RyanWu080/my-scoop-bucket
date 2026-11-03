@@ -36,7 +36,7 @@ scoop update pcl-ce-unrestrict-beta
 
 ### 使用说明
 
-- **QuickInput**：键盘鼠标宏自动化工具，需要 Windows 10 1903 或更高版本。运行 `scoop install my-scoop-bucket/quickinput` 安装，通过 `quickinput` 命令或开始菜单启动；更新时保留配置、宏、语言、样式及 OCR 目录。OCR 模型请从[官方下载页面](https://chiyukigana.github.io/ChiyukiGana/pages/qinput/versions.html)下载。
+- **QuickInput**：键盘鼠标宏自动化工具，需要 Windows 10 1903 或更高版本。运行 `scoop install my-scoop-bucket/quickinput` 安装，通过 `quickinput` 命令或开始菜单启动；更新时保留配置、宏、语言、样式及 OCR 目录。OCR 模型请从[官方下载页面](https://chiyukigana.github.io/ChiyukiGana/pages/qinput/versions.html)下载。下载后，将模块包和所需语言包解压到 `$(scoop prefix quickinput)\OCR`：单语言直接放入文件，多语言则保留各语言子文件夹。
 
 - **DLSS 5 Manager**：使用自带 .NET 8 运行时的 x64 免安装包。运行 `scoop install my-scoop-bucket/dlss-5-manager` 安装，使用 `dlss-5-manager` 命令或开始菜单快捷方式启动；配置、缓存及备份保存在 `%LOCALAPPDATA%\DLSS5Manager`。
 
@@ -84,7 +84,7 @@ scoop update pcl-ce-unrestrict-beta
 
 ### Notes
 
-- **QuickInput**: Keyboard and mouse macro automation tool requiring Windows 10 1903 or later. Install with `scoop install my-scoop-bucket/quickinput` and launch via `quickinput` or the Start Menu. Configuration, macros, languages, styles, and the OCR directory persist across updates. Download OCR models from the [official download page](https://chiyukigana.github.io/ChiyukiGana/pages/qinput/versions.html).
+- **QuickInput**: Keyboard and mouse macro automation tool requiring Windows 10 1903 or later. Install with `scoop install my-scoop-bucket/quickinput` and launch via `quickinput` or the Start Menu. Configuration, macros, languages, styles, and the OCR directory persist across updates. Download OCR models from the [official download page](https://chiyukigana.github.io/ChiyukiGana/pages/qinput/versions.html). Extract the module archive and desired language packs into `$(scoop prefix quickinput)\OCR`: place files directly in this directory for one language, or keep language subfolders for multiple languages.
 
 - **DLSS 5 Manager**: Uses the portable x64 archive with the .NET 8 runtime included. Install with `scoop install my-scoop-bucket/dlss-5-manager` and launch via `dlss-5-manager` or the Start Menu shortcut. Settings, caches, and backups are stored in `%LOCALAPPDATA%\DLSS5Manager`.
 
