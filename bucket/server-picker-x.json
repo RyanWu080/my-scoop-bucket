@@ -1,0 +1,33 @@
+{
+    "version": "1.2.0",
+    "description": "Portable server picker for CS2, Deadlock and Steam Datagram Relay games.",
+    "homepage": "https://github.com/FN-FAL113/server-picker-x",
+    "license": "GPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/FN-FAL113/server-picker-x/releases/download/v1.2.0/ServerPickerX.zip",
+            "hash": "e091c1a9f1108648bb64536165b69426d4737e20268177e7c659965e7e5e3a2e"
+        }
+    },
+    "pre_install": [
+        "if (!(Test-Path \"$persist_dir\\settings.json\")) {",
+        "    Set-Content -LiteralPath \"$dir\\settings.json\" -Value '{}' -Encoding UTF8",
+        "}"
+    ],
+    "shortcuts": [
+        [
+            "ServerPickerX.exe",
+            "Server Picker X"
+        ]
+    ],
+    "persist": "settings.json",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/FN-FAL113/server-picker-x/releases/download/v$version/ServerPickerX.zip"
+            }
+        }
+    },
+    "notes": "Launch Server Picker X from the Start Menu. Administrator privileges are required to manage firewall rules."
+}
