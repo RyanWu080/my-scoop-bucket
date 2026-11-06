@@ -16,13 +16,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Record HWiNFO Beta version
+        id: hwinfo_before
+        shell: pwsh
+        run: |
+          $manifest = Get-Content ./bucket/hwinfo-beta.json -Raw | ConvertFrom-Json
+          "version=$($manifest.version)" >> $env:GITHUB_OUTPUT
       - name: Excavate
         uses: ScoopInstaller/GithubActions@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SKIP_UPDATED: 1
       - name: Verify HWiNFO Beta update result
+        id: hwinfo_verify
         shell: pwsh
+        env:
+          PREVIOUS_VERSION: ${{ steps.hwinfo_before.outputs.version }}
         run: |
           $manifest = Get-Content ./bucket/hwinfo-beta.json -Raw | ConvertFrom-Json
           $response = Invoke-WebRequest -Uri $manifest.checkver.url -TimeoutSec 30 -ErrorAction Stop
@@ -35,7 +44,10 @@ jobs:
           if ($version -ne $manifest.version) {
               throw "HWiNFO Beta was not updated to $version. Check the Excavator download and hash logs."
           }
+          $updated = $manifest.version -ne $env:PREVIOUS_VERSION
+          "updated=$($updated.ToString().ToLowerInvariant())" >> $env:GITHUB_OUTPUT
       - name: Verify HWiNFO Beta download hashes
+        if: steps.hwinfo_verify.outputs.updated == 'true'
         shell: pwsh
         run: |
           $manifest = Get-Content ./bucket/hwinfo-beta.json -Raw | ConvertFrom-Json

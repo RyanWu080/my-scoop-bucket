@@ -54,7 +54,7 @@ scoop update pcl-ce-unrestrict-beta
 - **数据保存**：各 PCL CE 包使用独立命令和开始菜单快捷方式，并分别保留 `PCL`、`.minecraft` 目录；AppData 中的设置仍可能共享。
 - **HWiNFO Beta**：x64、ARM64 使用官方更新接口公布的固定更新包地址。官网 ZIP 返回 403，会阻塞自动更新，因此此清单暂不提供 x86；如需 x86，请查看[官方下载页](https://www.hwinfo.com/download/)。
 
-仓库每 4 小时检查更新，并校验 HWiNFO Beta 的版本及 x64、ARM64 下载哈希。运行结果见 [Excavator](https://github.com/RyanWu080/my-scoop-bucket/actions/workflows/excavator.yml)；清单格式参考 [Scoop 文档](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)。
+仓库每 4 小时检查更新，每次复核 HWiNFO Beta 版本，仅在版本更新后额外下载并校验 x64、ARM64 包的哈希。运行结果见 [Excavator](https://github.com/RyanWu080/my-scoop-bucket/actions/workflows/excavator.yml)；清单格式参考 [Scoop 文档](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)。
 
 ## English
 
@@ -105,4 +105,4 @@ scoop update pcl-ce-unrestrict-beta
 - **Data**: Each PCL CE package has a distinct command and Start Menu shortcut and preserves its own `PCL` and `.minecraft` directories. AppData settings may still be shared.
 - **HWiNFO Beta**: x64 and ARM64 use fixed update archive URLs published in the official update feed. The official ZIP returns HTTP 403 and blocks automatic updates, so this manifest temporarily excludes x86; see the [official download page](https://www.hwinfo.com/download/) if you need x86.
 
-Updates are checked every four hours, including HWiNFO Beta version checks and x64/ARM64 download hash verification. See [Excavator](https://github.com/RyanWu080/my-scoop-bucket/actions/workflows/excavator.yml) for results and the [Scoop documentation](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests) for manifest guidelines.
+Updates are checked every four hours, with HWiNFO Beta version verification on every run; additional x64/ARM64 downloads and hash verification run only after a version update. See [Excavator](https://github.com/RyanWu080/my-scoop-bucket/actions/workflows/excavator.yml) for results and the [Scoop documentation](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests) for manifest guidelines.
