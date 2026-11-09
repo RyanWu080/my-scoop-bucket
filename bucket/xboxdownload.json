@@ -1,0 +1,36 @@
+{
+    "version": "3.0.0.65",
+    "description": "Download assistant for Xbox, Microsoft Store and other gaming platforms.",
+    "homepage": "https://github.com/skydevil88/XboxDownload",
+    "license": "Unknown",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/skydevil88/XboxDownload/releases/download/v3.0.0.65/XboxDownload-windows-x64.zip",
+            "hash": "4ba8378ecaf42217616058f34fd4cac772dc6ced8e9ef529dbaf078880773787",
+            "extract_dir": "XboxDownload-windows-x64"
+        },
+        "arm64": {
+            "url": "https://github.com/skydevil88/XboxDownload/releases/download/v3.0.0.65/XboxDownload-windows-arm64.zip",
+            "hash": "bfc61d26fe573c832cc7f3280749bdd8caa3ca11cb7f9a692628fd8a77207973",
+            "extract_dir": "XboxDownload-windows-arm64"
+        }
+    },
+    "shortcuts": [
+        [
+            "XboxDownload.exe",
+            "XboxDownload"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/skydevil88/XboxDownload/releases/download/v$version/XboxDownload-windows-x64.zip"
+            },
+            "arm64": {
+                "url": "https://github.com/skydevil88/XboxDownload/releases/download/v$version/XboxDownload-windows-arm64.zip"
+            }
+        }
+    },
+    "notes": "Launch XboxDownload from the Start Menu and allow administrator privileges. Settings are stored in %LOCALAPPDATA%\\XboxDownload. Use Scoop to update the application."
+}

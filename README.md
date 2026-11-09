@@ -7,7 +7,7 @@
 
 ## 中文
 
-个人 [Scoop](https://scoop.sh) 软件桶，提供 PCL CE 官方版、解除地区限制版、HWiNFO Beta、DLSS 5 Manager、QuickInput 及 Server Picker X。
+个人 [Scoop](https://scoop.sh) 软件桶，提供 PCL CE 官方版、解除地区限制版、HWiNFO Beta、DLSS 5 Manager、QuickInput、Server Picker X 及 XboxDownload。
 
 ### 软件清单
 
@@ -21,6 +21,7 @@
 | `dlss-5-manager` | [DLSS 5 Manager](https://github.com/NODIX-TECH/DLSS-5-MANAGER) | 正式版 | x64 |
 | `quickinput` | [QuickInput](https://github.com/ChiyukiGana/Quickinput) | 正式版 | x64 |
 | `server-picker-x` | [Server Picker X](https://github.com/FN-FAL113/server-picker-x) | 正式版 | x64 |
+| `xboxdownload` | [XboxDownload](https://github.com/skydevil88/XboxDownload) | 正式版 | x64、ARM64 |
 
 ### 安装与更新
 
@@ -36,6 +37,8 @@ scoop update pcl-ce-unrestrict-beta
 ```
 
 ### 使用说明
+
+- **XboxDownload**：Xbox、微软商店等游戏平台的下载助手，使用 x64 或 ARM64 便携包。运行 `scoop install my-scoop-bucket/xboxdownload` 安装，从开始菜单启动并允许管理员权限；配置保存在 `%LOCALAPPDATA%\XboxDownload`，使用 Scoop 更新软件。
 
 - **Server Picker X**：CS2、Deadlock 等游戏的服务器选择工具，使用自带 .NET 运行时的 x64 便携包。运行 `scoop install my-scoop-bucket/server-picker-x` 安装，从开始菜单启动并允许管理员权限，以便管理防火墙规则；更新时保留设置和预设。
 
@@ -58,7 +61,7 @@ scoop update pcl-ce-unrestrict-beta
 
 ## English
 
-A personal [Scoop](https://scoop.sh) bucket for official PCL CE, a fork with regional restrictions removed, HWiNFO Beta, DLSS 5 Manager, QuickInput, and Server Picker X.
+A personal [Scoop](https://scoop.sh) bucket for official PCL CE, a fork with regional restrictions removed, HWiNFO Beta, DLSS 5 Manager, QuickInput, Server Picker X, and XboxDownload.
 
 ### Packages
 
@@ -72,6 +75,7 @@ A personal [Scoop](https://scoop.sh) bucket for official PCL CE, a fork with reg
 | `dlss-5-manager` | [DLSS 5 Manager](https://github.com/NODIX-TECH/DLSS-5-MANAGER) | Stable | x64 |
 | `quickinput` | [QuickInput](https://github.com/ChiyukiGana/Quickinput) | Stable | x64 |
 | `server-picker-x` | [Server Picker X](https://github.com/FN-FAL113/server-picker-x) | Stable | x64 |
+| `xboxdownload` | [XboxDownload](https://github.com/skydevil88/XboxDownload) | Stable | x64, ARM64 |
 
 ### Installation and updates
 
@@ -87,6 +91,8 @@ scoop update pcl-ce-unrestrict-beta
 ```
 
 ### Notes
+
+- **XboxDownload**: Download assistant for Xbox, Microsoft Store and other gaming platforms, using the x64 or ARM64 portable archive. Install with `scoop install my-scoop-bucket/xboxdownload`, then launch from the Start Menu and allow administrator privileges. Settings are stored in `%LOCALAPPDATA%\XboxDownload`; use Scoop to update the application.
 
 - **Server Picker X**: Server picker for CS2, Deadlock and other Steam Datagram Relay games. Uses the self-contained x64 portable archive. Install with `scoop install my-scoop-bucket/server-picker-x`, then launch from the Start Menu and allow administrator privileges to manage firewall rules. Settings and presets persist across updates.
 
