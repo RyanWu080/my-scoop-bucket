@@ -1,17 +1,17 @@
 {
-    "version": "3.0.0.65",
+    "version": "3.0.0.66",
     "description": "Download assistant for Xbox, Microsoft Store and other gaming platforms.",
     "homepage": "https://github.com/skydevil88/XboxDownload",
     "license": "Unknown",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/skydevil88/XboxDownload/releases/download/v3.0.0.65/XboxDownload-windows-x64.zip",
-            "hash": "4ba8378ecaf42217616058f34fd4cac772dc6ced8e9ef529dbaf078880773787",
+            "url": "https://github.com/skydevil88/XboxDownload/releases/download/v3.0.0.66/XboxDownload-windows-x64.zip",
+            "hash": "aabaf9149c08bf0438995de271119948ba2f1022809a4dc2797e132fdcadca28",
             "extract_dir": "XboxDownload-windows-x64"
         },
         "arm64": {
-            "url": "https://github.com/skydevil88/XboxDownload/releases/download/v3.0.0.65/XboxDownload-windows-arm64.zip",
-            "hash": "bfc61d26fe573c832cc7f3280749bdd8caa3ca11cb7f9a692628fd8a77207973",
+            "url": "https://github.com/skydevil88/XboxDownload/releases/download/v3.0.0.66/XboxDownload-windows-arm64.zip",
+            "hash": "10ff44d4806038756aa0b15db53bacd7553f66b403373c0cb19d17eee3e818cb",
             "extract_dir": "XboxDownload-windows-arm64"
         }
     },
