@@ -7,7 +7,7 @@
 
 ## 中文
 
-个人 [Scoop](https://scoop.sh) 软件桶，提供 PCL CE 官方版、解除地区限制版、HWiNFO Beta、DLSS 5 Manager、QuickInput、Server Picker X 及 XboxDownload。
+个人 [Scoop](https://scoop.sh) 软件桶，提供 PCL CE 官方版、解除地区限制版、HWiNFO Beta、DLSS 5 Manager、QuickInput、Server Picker X、XboxDownload 及 chiaki-ng。
 
 ### 软件清单
 
@@ -22,6 +22,7 @@
 | `quickinput` | [QuickInput](https://github.com/ChiyukiGana/Quickinput) | 正式版 | x64 |
 | `server-picker-x` | [Server Picker X](https://github.com/FN-FAL113/server-picker-x) | 正式版 | x64 |
 | `xboxdownload` | [XboxDownload](https://github.com/skydevil88/XboxDownload) | 正式版 | x64、ARM64 |
+| `chiaki-ng` | [chiaki-ng](https://github.com/chiaki-ng/chiaki-ng) | 正式版 | x64、ARM64 |
 
 ### 安装与更新
 
@@ -37,6 +38,8 @@ scoop update pcl-ce-unrestrict-beta
 ```
 
 ### 使用说明
+
+- **chiaki-ng**：PlayStation 远程游玩客户端。清单复用自 [Scoop Games](https://github.com/ScoopInstaller/Games/blob/f9b86c53d6c9871b12307dae1e192311ac4bed44/bucket/chiaki-ng.json)，直接跟踪 [chiaki-ng 上游正式版](https://github.com/chiaki-ng/chiaki-ng/releases)，由现有 Excavator 每 4 小时检查并自动提交更新。运行 `scoop install my-scoop-bucket/chiaki-ng` 安装，通过 `chiaki-ng` 命令或开始菜单启动。需要支持 Vulkan 1.2 或更高版本的 GPU。
 
 - **XboxDownload**：Xbox、微软商店等游戏平台的下载助手，使用 x64 或 ARM64 便携包。运行 `scoop install my-scoop-bucket/xboxdownload` 安装，从开始菜单启动并允许管理员权限；配置保存在 `%LOCALAPPDATA%\XboxDownload`，使用 Scoop 更新软件。
 
@@ -61,7 +64,7 @@ scoop update pcl-ce-unrestrict-beta
 
 ## English
 
-A personal [Scoop](https://scoop.sh) bucket for official PCL CE, a fork with regional restrictions removed, HWiNFO Beta, DLSS 5 Manager, QuickInput, Server Picker X, and XboxDownload.
+A personal [Scoop](https://scoop.sh) bucket for official PCL CE, a fork with regional restrictions removed, HWiNFO Beta, DLSS 5 Manager, QuickInput, Server Picker X, XboxDownload, and chiaki-ng.
 
 ### Packages
 
@@ -76,6 +79,7 @@ A personal [Scoop](https://scoop.sh) bucket for official PCL CE, a fork with reg
 | `quickinput` | [QuickInput](https://github.com/ChiyukiGana/Quickinput) | Stable | x64 |
 | `server-picker-x` | [Server Picker X](https://github.com/FN-FAL113/server-picker-x) | Stable | x64 |
 | `xboxdownload` | [XboxDownload](https://github.com/skydevil88/XboxDownload) | Stable | x64, ARM64 |
+| `chiaki-ng` | [chiaki-ng](https://github.com/chiaki-ng/chiaki-ng) | Stable | x64, ARM64 |
 
 ### Installation and updates
 
@@ -91,6 +95,8 @@ scoop update pcl-ce-unrestrict-beta
 ```
 
 ### Notes
+
+- **chiaki-ng**: PlayStation Remote Play client. The manifest is adapted from [Scoop Games](https://github.com/ScoopInstaller/Games/blob/f9b86c53d6c9871b12307dae1e192311ac4bed44/bucket/chiaki-ng.json) and tracks [upstream stable releases](https://github.com/chiaki-ng/chiaki-ng/releases) directly. The existing Excavator checks every four hours and commits updates automatically. Install with `scoop install my-scoop-bucket/chiaki-ng` and launch via `chiaki-ng` or the Start Menu. Requires a GPU supporting Vulkan 1.2 or later.
 
 - **XboxDownload**: Download assistant for Xbox, Microsoft Store and other gaming platforms, using the x64 or ARM64 portable archive. Install with `scoop install my-scoop-bucket/xboxdownload`, then launch from the Start Menu and allow administrator privileges. Settings are stored in `%LOCALAPPDATA%\XboxDownload`; use Scoop to update the application.
 
