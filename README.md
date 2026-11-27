@@ -21,6 +21,7 @@
 | `dlss-5-manager` | [DLSS 5 Manager](https://github.com/NODIX-TECH/DLSS-5-MANAGER) | 正式版 | x64 |
 | `quickinput` | [QuickInput](https://github.com/ChiyukiGana/Quickinput) | 正式版 | x64 |
 | `pylux` | [Pylux](https://github.com/ForWard-Technologies-LLC/Pylux) | 正式版 | x64 |
+| `fh-dualsense-enhanced` | [FH DualSense Enhanced](https://github.com/piereacy/FH-DualSense-Enhanced) | 正式版 | x64 |
 | `server-picker-x` | [Server Picker X](https://github.com/FN-FAL113/server-picker-x) | 正式版 | x64 |
 | `xboxdownload` | [XboxDownload](https://github.com/skydevil88/XboxDownload) | 正式版 | x64、ARM64 |
 | `chiaki-ng` | [chiaki-ng](https://github.com/chiaki-ng/chiaki-ng) | 正式版 | x64、ARM64 |
@@ -79,6 +80,7 @@ A personal [Scoop](https://scoop.sh) bucket for official PCL CE, a fork with reg
 | `dlss-5-manager` | [DLSS 5 Manager](https://github.com/NODIX-TECH/DLSS-5-MANAGER) | Stable | x64 |
 | `quickinput` | [QuickInput](https://github.com/ChiyukiGana/Quickinput) | Stable | x64 |
 | `pylux` | [Pylux](https://github.com/ForWard-Technologies-LLC/Pylux) | Stable | x64 |
+| `fh-dualsense-enhanced` | [FH DualSense Enhanced](https://github.com/piereacy/FH-DualSense-Enhanced) | Stable | x64 |
 | `server-picker-x` | [Server Picker X](https://github.com/FN-FAL113/server-picker-x) | Stable | x64 |
 | `xboxdownload` | [XboxDownload](https://github.com/skydevil88/XboxDownload) | Stable | x64, ARM64 |
 | `chiaki-ng` | [chiaki-ng](https://github.com/chiaki-ng/chiaki-ng) | Stable | x64, ARM64 |
